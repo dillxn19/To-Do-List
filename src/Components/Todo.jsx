@@ -5,7 +5,7 @@ let count = 0;
 const Todo = () => {
     const [todos,setTodos] = useState([])
     const inputRef = useRef(null);
-    
+
     const add = () => {
         setTodos([...todos,{no:count++,text:inputRef.current.value,display:""}]);
         inputRef.current.value = "";
@@ -32,7 +32,7 @@ const Todo = () => {
         </div>
         <div className="todo-list">
             {todos.map((item,index)=>{
-                return <TodoItems key={index} no={item.no} display={item.display} text={item.text}/>
+                return <TodoItems key={index} setTodos={setTodos} no={item.no} display={item.display} text={item.text}/>
             })}
 
         </div>
